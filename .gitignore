@@ -1,0 +1,7 @@
+# Safety net for the whole repo (storefront/ has its own, more detailed .gitignore)
+.DS_Store
+node_modules
+.env
+.env.*
+!.env.example
+*.zip

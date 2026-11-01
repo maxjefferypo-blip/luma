@@ -1,25 +1,32 @@
-# CODING AGENTS: READ THIS FIRST
+# Luma
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Website and design system for **Luma**, maker of the LC–01 quantum-dot screen protector.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+Live: https://luma96.netlify.app
 
-## What you should do — IMPORTANT
+## What's here
 
-**Read the chat transcripts first.** There are 2 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+```
+project/       Luma design system, exported from Claude Design (source of truth: Claude Design)
+storefront/    The website: Shopify Hydrogen (headless), deployed on Netlify
+docs/          Background: design-session transcripts from Claude Design
+netlify.toml   Netlify build settings (builds storefront/)
+```
 
-**Find the primary design file under `project/` and read it top to bottom.** The chat transcripts will tell you which file the user was last iterating on. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## How changes flow
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+| Change | Made in | Reaches the site by |
+|---|---|---|
+| Brand: colours, type, logo, components, tone of voice | **Claude Design** | Re-export, replace `project/`, update `storefront/` to match (pull request) |
+| Website: pages, sections, copy, behaviour | `storefront/` | Pull request → Netlify preview → merge to `main` |
+| Products, prices, stock, discounts, policies | **Shopify admin** | Live immediately, no deploy |
 
-## About the design files
+Rules:
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+- **Don't edit `project/` by hand.** It's replaced wholesale by each Claude Design export, so manual edits would be lost.
+- All copy, claims and figures follow `project/guidelines/voice/brand-strategy.md`.
+- Every push to `main` deploys to Netlify. Pull requests get a preview URL.
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+## Running the website
 
-## Bundle contents
-
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Luma Design System` project files (HTML prototypes, assets, components)
+See [`storefront/README.md`](storefront/README.md) for local dev, the Shopify setup, environment variables and deployment.
