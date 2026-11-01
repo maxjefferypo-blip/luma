@@ -1,8 +1,31 @@
-# Luma
+<p align="center">
+  <a href="https://luma96.netlify.app">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="project/assets/logo/luma-logo-reversed.svg">
+      <img src="project/assets/logo/luma-logo-primary.svg" alt="luma" width="220">
+    </picture>
+  </a>
+</p>
 
-Website and design system for **Luma**, maker of the LC–01 quantum-dot screen protector.
+<p align="center"><strong>Light, reimagined.</strong></p>
 
-Live: https://luma96.netlify.app
+<p align="center">
+  Website and design system for Luma, maker of the LC–01 quantum-dot screen protector.
+</p>
+
+<p align="center">
+  <a href="https://luma96.netlify.app"><strong>Live site</strong></a> ·
+  <a href="storefront/README.md">Storefront docs</a> ·
+  <a href="project/guidelines/voice/brand-strategy.md">Brand strategy</a>
+</p>
+
+<p align="center">
+  <img alt="Shopify Hydrogen" src="https://img.shields.io/badge/Shopify-Hydrogen-1F2326?style=flat-square&logo=shopify&logoColor=F5F1EA">
+  <img alt="Deployed on Netlify" src="https://img.shields.io/badge/Deployed%20on-Netlify-1F2326?style=flat-square&logo=netlify&logoColor=F5F1EA">
+  <img alt="Design system: Claude Design" src="https://img.shields.io/badge/Design%20system-Claude%20Design-D65D42?style=flat-square">
+</p>
+
+---
 
 ## What's here
 
