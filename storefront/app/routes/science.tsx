@@ -53,6 +53,18 @@ export default function Science() {
         </Container>
       </Section>
 
+      <Section style={{paddingTop: 0}}>
+        <Container narrow>
+          <div className="k-split" style={{gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)'}}>
+            <h2 className="luma-h2">Why the evening.</h2>
+            <div style={{display: 'flex', flexDirection: 'column', gap: 16}}>
+              <p className="luma-body">For many of us, a phone is the last light we look at before bed. LC–01 changes some of that light: less blue, more red.</p>
+              <p className="luma-body">We don’t claim it changes how you sleep. We show exactly what it does to the light, and how we measured it.</p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       <Section id="results" tone="stone">
         <Container narrow>
           <div className="k-split" style={{gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)'}}>

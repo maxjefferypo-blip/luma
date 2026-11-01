@@ -15,10 +15,10 @@ import {PRODUCT_QUERY} from '~/lib/product';
 // hero → range → in the box → science card → editorial → brand ticker → results carousel → gallery → closing pair.
 
 export const meta: Route.MetaFunction = () => [
-  {title: 'Luma LC–01 — Less blue light from your iPhone screen'},
+  {title: 'Luma LC–01 — Made for bedtime scrolling'},
   {
     name: 'description',
-    content: 'Luma LC–01 is a screen protector that converts a portion of your screen’s blue light into warmer, longer wavelengths. 17.17% blue-light reduction on a reported TÜV test sample. 9H tempered glass.',
+    content: 'Luma LC–01 converts a portion of your iPhone screen’s blue light into warmer, red light. Made for bedtime scrolling: no glasses, no apps, nothing to switch on. 9H tempered glass.',
   },
 ];
 
@@ -169,7 +169,7 @@ function Slot({w, h, label, mask, src}: {w: number; h: number; label: string; ma
   );
 }
 
-const BRAND_LINES = ['Light, reimagined.', 'Less blue light. Every evening.', 'Not just protection. Light conversion.', 'Measured, not assumed.', 'Rethink what’s between you and your screen.'];
+const BRAND_LINES = ['Light, reimagined.', 'Made for bedtime scrolling.', 'Your wind-down, with less blue light.', 'Not just protection. Light conversion.', 'Measured, not assumed.', 'Rethink what’s between you and your screen.'];
 
 export default function Homepage() {
   const data = useLoaderData<typeof loader>();
@@ -191,9 +191,9 @@ export default function Homepage() {
           <Container>
             <div className="k-hero2-grid">
               <div style={{display: 'flex', flexDirection: 'column', gap: 28, maxWidth: 540}}>
-                <h1 className="luma-hero">Less blue light. Every evening.</h1>
+                <h1 className="luma-hero">Made for bedtime scrolling.</h1>
                 <p className="luma-lead" style={{maxWidth: 460}}>
-                  LC–01 converts a portion of your screen’s blue light into warmer, longer wavelengths. No glasses, no apps, nothing to switch on. Plus 9H glass protection.
+                  The last screen you see each night, with less blue light. LC–01 converts a portion of it into warmer, red light. No glasses, no apps, nothing to switch on. Plus 9H glass protection.
                 </p>
                 <div style={{display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap', marginTop: 4}}>
                   <Button iconRight="arrow-right" to={shop}>Explore LC–01</Button>

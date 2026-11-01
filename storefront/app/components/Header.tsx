@@ -25,8 +25,8 @@ export function navLinks(productHandle: string) {
 /** Peach scrolling bar above the header (website kit). Links to the product. */
 export function AnnouncementBar({productHandle}: {productHandle: string}) {
   const items = [
-    '17.17% less blue light — reported TÜV test sample',
-    'Converts a portion of blue light into warmer wavelengths',
+    'Made for bedtime scrolling',
+    'Converts a portion of blue light into warmer, red light',
     'No glasses, no apps — nothing to switch on',
     'Applicator included in every box',
   ];
