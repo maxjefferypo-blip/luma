@@ -15,10 +15,10 @@ import {PRODUCT_QUERY} from '~/lib/product';
 // hero → range → in the box → science card → editorial → brand ticker → results carousel → gallery → closing pair.
 
 export const meta: Route.MetaFunction = () => [
-  {title: 'Luma — A different kind of screen protector'},
+  {title: 'Luma LC–01 — Less blue light from your iPhone screen'},
   {
     name: 'description',
-    content: 'Luma LC–01 is 9H tempered glass designed to convert a portion of blue light into longer wavelengths. Not just protection. Light conversion.',
+    content: 'Luma LC–01 is a screen protector that converts a portion of your screen’s blue light into warmer, longer wavelengths. 17.17% blue-light reduction on a reported TÜV test sample. 9H tempered glass.',
   },
 ];
 
@@ -169,7 +169,7 @@ function Slot({w, h, label, mask, src}: {w: number; h: number; label: string; ma
   );
 }
 
-const BRAND_LINES = ['Light, reimagined.', 'A different kind of screen protector.', 'Not just protection. Light conversion.', 'Measured, not assumed.', 'Rethink what’s between you and your screen.'];
+const BRAND_LINES = ['Light, reimagined.', 'Less blue light. Every evening.', 'Not just protection. Light conversion.', 'Measured, not assumed.', 'Rethink what’s between you and your screen.'];
 
 export default function Homepage() {
   const data = useLoaderData<typeof loader>();
@@ -191,14 +191,15 @@ export default function Homepage() {
           <Container>
             <div className="k-hero2-grid">
               <div style={{display: 'flex', flexDirection: 'column', gap: 28, maxWidth: 540}}>
-                <h1 className="luma-hero">A different kind of screen protector.</h1>
-                <p className="luma-lead" style={{maxWidth: 440}}>
-                  Most screen protectors protect the glass. LC–01 is designed to do something more — converting a portion of blue light into longer wavelengths.
+                <h1 className="luma-hero">Less blue light. Every evening.</h1>
+                <p className="luma-lead" style={{maxWidth: 460}}>
+                  LC–01 converts a portion of your screen’s blue light into warmer, longer wavelengths. No glasses, no apps, nothing to switch on. Plus 9H glass protection.
                 </p>
                 <div style={{display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap', marginTop: 4}}>
                   <Button iconRight="arrow-right" to={shop}>Explore LC–01</Button>
                   <TextLink href="#science" arrow onClick={scrollTo('science')}>How it works</TextLink>
                 </div>
+                <span className="luma-caption">17.17% blue-light reduction, reported TÜV test sample. Not a medical device.</span>
               </div>
               <div className="k-hero2-media">
                 {/* lowercase attribute: React 18 doesn't map fetchPriority */}
@@ -216,7 +217,7 @@ export default function Homepage() {
             <h2 className="luma-h1" style={{maxWidth: 560}}>Choose your iPhone model.</h2>
             <div className="k-row-head-side">
               <p style={{font: 'var(--text-body)', color: 'var(--text-inverse-secondary)', maxWidth: 360}}>
-                One protector, cut precisely for each model. Every box includes the glass and its applicator.
+                Less blue light, cut precisely for each model. Every box includes the glass and its applicator.
               </p>
               <TextLink inverse arrow to={shop}>Shop all</TextLink>
             </div>

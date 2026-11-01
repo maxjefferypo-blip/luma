@@ -25,10 +25,10 @@ export function navLinks(productHandle: string) {
 /** Peach scrolling bar above the header (website kit). Links to the product. */
 export function AnnouncementBar({productHandle}: {productHandle: string}) {
   const items = [
-    'Luma LC–01 — a different kind of screen protector',
+    '17.17% less blue light — reported TÜV test sample',
+    'Converts a portion of blue light into warmer wavelengths',
+    'No glasses, no apps — nothing to switch on',
     'Applicator included in every box',
-    'Not just protection. Light conversion.',
-    'Published test results — see how we measure',
   ];
   return (
     <Link to={productPath(productHandle)} prefetch="intent" className="k-announce" aria-label="Shop Luma LC–01">

@@ -29,7 +29,7 @@ export const meta: Route.MetaFunction = ({data}) => {
       name: 'description',
       content:
         product?.seo.description ||
-        '9H tempered glass with quantum dots that absorb a portion of blue light and re-emit it at longer red wavelengths. Includes a dedicated applicator.',
+        'Converts a portion of your screen’s blue light into warmer, longer wavelengths. 17.17% blue-light reduction on a reported TÜV test sample. 9H tempered glass, applicator included.',
     },
     {tagName: 'link', rel: 'canonical', href: `/products/${product?.handle}`},
   ];
@@ -147,7 +147,7 @@ export default function Product() {
                 )}
               </div>
               <p className="luma-body" style={{maxWidth: 460}}>
-                9H tempered glass with quantum dots that absorb a portion of blue light and re-emit it at longer red wavelengths. Includes a dedicated applicator.
+                Less blue light from your screen, with nothing to switch on. Quantum dots in the glass absorb a portion of blue light and re-emit it at warmer, longer wavelengths. 9H tempered glass, with a dedicated applicator.
               </p>
 
               {choices.map((option) => {
@@ -198,6 +198,7 @@ export default function Product() {
               </div>
 
               <div className="k-trust" style={{marginTop: -6}}>
+                <span>Always on</span>
                 <span>Applicator included</span>
                 <span>≈ 91% transmittance</span>
                 <span>0.33 mm</span>
