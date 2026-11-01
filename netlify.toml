@@ -1,0 +1,15 @@
+# Netlify config for the Luma storefront (Shopify headless, Hydrogen).
+# The app lives in storefront/; server.ts is deployed as an Edge Function by
+# @netlify/vite-plugin-react-router. Set the Shopify env vars in Netlify
+# (Site configuration › Environment variables) — see storefront/.env.example.
+[build]
+  base = "storefront"
+  command = "npm run build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 5173

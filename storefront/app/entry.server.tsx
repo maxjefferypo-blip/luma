@@ -1,6 +1,7 @@
 import {ServerRouter} from 'react-router';
 import {isbot} from 'isbot';
-import {renderToReadableStream} from 'react-dom/server';
+// Web-streams build: works in Netlify's edge runtime and in Node during local dev.
+import {renderToReadableStream} from 'react-dom/server.browser';
 import {
   createContentSecurityPolicy,
   type HydrogenRouterContextProvider,

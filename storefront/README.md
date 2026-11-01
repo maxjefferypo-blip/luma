@@ -1,6 +1,6 @@
 # Luma storefront (headless Shopify)
 
-The Luma website as a headless Shopify store: **Shopify Hydrogen** (React Router 7) on Shopify's **Oxygen** hosting, styled with the Luma design system from `../project/`. Shopify handles products, prices, stock, the cart, checkout, customer accounts and policies. This app is the branded front end.
+The Luma website as a headless Shopify store: **Shopify Hydrogen** (React Router 7) deployed on **Netlify** (Edge Functions), styled with the Luma design system from `../project/`. Shopify handles products, prices, stock, the cart, checkout, customer accounts and policies. This app is the branded front end.
 
 | Page | Route | Source design |
 |---|---|---|
@@ -15,19 +15,28 @@ The Luma website as a headless Shopify store: **Shopify Hydrogen** (React Router
 Requires Node 22 or 24.
 
 ```bash
+cp .env.example .env             # fill in your Shopify store's Storefront API keys
 npm install
-npx shopify hydrogen link        # connect to your Shopify store (once)
-npx shopify hydrogen env pull    # writes .env with the store's tokens
-npm run dev                      # http://localhost:3000
+npm run dev                      # http://localhost:5173
 ```
 
-Without a linked store, Hydrogen falls back to Shopify's demo store (mock.shop). The home page still renders, but `/products/lc-01` returns 404 because mock.shop has no LC–01.
+Without store keys, Hydrogen falls back to Shopify's demo store (mock.shop): the home page renders, but `/products/lc-01` is a 404 because mock.shop has no LC–01.
 
-Other scripts: `npm run build`, `npm run preview`, `npm run typecheck`, `npm run lint`, `npm run codegen` (regenerates GraphQL types after changing a query).
+Other scripts: `npm run build`, `npm run typecheck`, `npm run lint`, `npm run codegen` (regenerates GraphQL types after changing a query).
+
+## Deploy to Netlify
+
+`netlify.toml` at the repo root already sets the base directory (`storefront`), the build command and the publish folder. `server.ts` is deployed as a Netlify Edge Function by `@netlify/vite-plugin-react-router`; static files are served from `dist/client`.
+
+1. Netlify › **Add new site › Import an existing project** › pick this GitHub repo. Leave the build settings as detected.
+2. **Site configuration › Environment variables**: add every variable from `.env.example` (`SESSION_SECRET`, `PUBLIC_STORE_DOMAIN`, `PUBLIC_STOREFRONT_API_TOKEN`, `PRIVATE_STOREFRONT_API_TOKEN`, `PUBLIC_STOREFRONT_ID`, `PUBLIC_CHECKOUT_DOMAIN`, and the customer-account ones if you use `/account`).
+3. Deploy. Every pull request gets a Netlify deploy preview URL.
+
+The Storefront API keys come from Shopify admin › **Headless** sales channel (or Hydrogen channel) › your storefront.
 
 ## Set up Shopify (one-off)
 
-1. **Install the Hydrogen sales channel** (Shopify admin › Sales channels › Hydrogen) and create a storefront. This provides the Storefront API tokens and Oxygen hosting.
+1. **Install the Headless sales channel** (Shopify admin › Sales channels) and create a storefront. This provides the Storefront API tokens for Netlify.
 2. **Create the product**
    - Handle: `lc-01` (or set `PUBLIC_PRODUCT_HANDLE`).
    - Title: `Luma LC–01`, with an en dash.
@@ -39,8 +48,7 @@ Other scripts: `npm run build`, `npm run preview`, `npm run typecheck`, `npm run
 3. **Markets:** United Kingdom, GBP. The storefront requests prices in `GB` (`app/lib/context.ts`).
 4. **Policies** (Settings › Policies): shipping and refund. The footer links to `/policies/shipping-policy` and `/policies/refund-policy`.
 5. **Contact page:** create a page with the handle `contact`. The footer links to `/pages/contact`.
-6. **Customer accounts:** turn on the new customer accounts and add the Customer Account API values to the environment, so the header's account icon (`/account`) works.
-7. **Deploy:** connect the GitHub repo in the Hydrogen channel (each push deploys to Oxygen), or run `npx shopify hydrogen deploy`.
+6. **Customer accounts:** turn on the new customer accounts and add the Customer Account API values (`PUBLIC_CUSTOMER_ACCOUNT_API_CLIENT_ID`, `SHOP_ID`) to Netlify's environment variables, so the header's account icon (`/account`) works. Add your Netlify domain to the Customer Account API's allowed callback URLs.
 
 ## What lives where
 
@@ -67,6 +75,7 @@ app/
   lib/luma.ts             brand constants, image paths, price formatting
   lib/product.ts          shared product query (home + product page)
   routes/                 _index, products.$handle, science, newsletter, cart, + skeleton routes
+server.ts                 Netlify Edge Function entry (creates the Hydrogen context per request)
 public/fonts, public/images/product   self-hosted Geist/Figtree and the product renders
 ```
 

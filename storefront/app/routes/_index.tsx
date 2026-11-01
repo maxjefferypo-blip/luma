@@ -201,7 +201,8 @@ export default function Homepage() {
                 </div>
               </div>
               <div className="k-hero2-media">
-                <img src={IMG.front} alt="LC–01 glass in front of a phone" fetchPriority="high" />
+                {/* lowercase attribute: React 18 doesn't map fetchPriority */}
+                <img src={IMG.front} alt="LC–01 glass in front of a phone" {...{fetchpriority: 'high'}} />
               </div>
             </div>
           </Container>

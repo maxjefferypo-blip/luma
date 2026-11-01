@@ -1,44 +1,51 @@
 import {fileURLToPath} from 'node:url';
-import {defineConfig} from 'vite';
+import {defineConfig, loadEnv} from 'vite';
 import {hydrogen} from '@shopify/hydrogen/vite';
-import {oxygen} from '@shopify/mini-oxygen/vite';
+import netlifyReactRouter from '@netlify/vite-plugin-react-router';
 import {reactRouter} from '@react-router/dev/vite';
 
-export default defineConfig({
-  plugins: [hydrogen(), oxygen(), reactRouter()],
-  resolve: {
-    alias: {
-      // Vite's native tsconfig path resolver does not cover JavaScript
-      // projects that use jsconfig.json, so define Hydrogen's app alias here.
-      '~': fileURLToPath(new URL('./app', import.meta.url)),
+export default defineConfig(({command, mode}) => {
+  // Local dev: make .env available to server.ts (on Netlify the values come from the site's environment variables).
+  if (command === 'serve')
+    Object.assign(process.env, loadEnv(mode, process.cwd(), ''));
+
+  return {
+    // Netlify: server.ts runs as an Edge Function (see netlify.toml at the repo root).
+    plugins: [hydrogen(), reactRouter(), netlifyReactRouter({edge: true})],
+    resolve: {
+      alias: {
+        // Vite's native tsconfig path resolver does not cover JavaScript
+        // projects that use jsconfig.json, so define Hydrogen's app alias here.
+        '~': fileURLToPath(new URL('./app', import.meta.url)),
+      },
+      tsconfigPaths: true,
     },
-    tsconfigPaths: true,
-  },
-  build: {
-    // Allow a strict Content-Security-Policy
-    // without inlining assets as base64:
-    assetsInlineLimit: 0,
-  },
-  ssr: {
-    optimizeDeps: {
-      /**
-       * Include dependencies here if they throw CJS<>ESM errors.
-       * For example, for the following error:
-       *
-       * > ReferenceError: module is not defined
-       * >   at /Users/.../node_modules/example-dep/index.js:1:1
-       *
-       * Include 'example-dep' in the array below.
-       * @see https://vitejs.dev/config/dep-optimization-options
-       */
-      include: [
-        'react-router > set-cookie-parser',
-        'react-router > cookie',
-        'react-router',
-      ],
+    build: {
+      // Allow a strict Content-Security-Policy
+      // without inlining assets as base64:
+      assetsInlineLimit: 0,
     },
-  },
-  server: {
-    allowedHosts: ['.tryhydrogen.dev'],
-  },
+    ssr: {
+      optimizeDeps: {
+        /**
+         * Include dependencies here if they throw CJS<>ESM errors.
+         * For example, for the following error:
+         *
+         * > ReferenceError: module is not defined
+         * >   at /Users/.../node_modules/example-dep/index.js:1:1
+         *
+         * Include 'example-dep' in the array below.
+         * @see https://vitejs.dev/config/dep-optimization-options
+         */
+        include: [
+          'react-router > set-cookie-parser',
+          'react-router > cookie',
+          'react-router',
+        ],
+      },
+    },
+    server: {
+      allowedHosts: ['.tryhydrogen.dev'],
+    },
+  };
 });
