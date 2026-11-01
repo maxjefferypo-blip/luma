@@ -1,0 +1,148 @@
+/* Luma design tokens — generated from project/tokens/*.css (Claude Design handoff). Keep in sync with the design system. */
+
+/* ---- tokens/fonts.css ---- */
+/* Luma webfonts — self-hosted, both SIL Open Font License 1.1 (free for commercial use, web, print and packaging).
+   Geist: headlines (Hero, H1, H2). Figtree: body, UI, H3, captions, buttons.
+   The luma wordmark is outlined vector art and needs no font. Latin subset; add latin-ext files if needed. */
+@font-face{font-family:"Geist";src:url("/fonts/Geist-Variable.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Figtree";src:url("/fonts/Figtree-Variable.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Figtree";src:url("/fonts/Figtree-Variable-Italic.woff2") format("woff2");font-weight:300 900;font-style:italic;font-display:swap}
+
+/* ---- tokens/colors.css ---- */
+:root{
+/* Core palette — from the Luma brand brief */
+--luma-charcoal:#1F2326;
+--luma-orange:#D65D42;
+--luma-peach:#F5BFA9;
+--luma-bone:#F5F1EA;
+--luma-stone:#E6DED3;
+--luma-mist:#D9E1DE;
+--luma-white:#FFFFFF;
+
+/* Derived neutrals — charcoal mixed into bone. Not new hues; used only for text hierarchy and hairlines */
+--luma-ink-80:#4A4C4D;
+--luma-ink-64:#6C6D6D;
+--luma-ink-24:#C2C0BB;
+--luma-ink-14:#D7D4CF;
+--luma-bone-70:#B5B3AF;
+
+/* Derived orange states — interaction only */
+--luma-orange-hover:#C2533A;
+--luma-orange-press:#AD4A33;
+--luma-orange-deep:#B4442E;
+
+/* Semantic — surfaces */
+--bg-page:var(--luma-bone);
+--bg-subtle:var(--luma-stone);
+--bg-cool:var(--luma-mist);
+--bg-inverse:var(--luma-charcoal);
+--surface-card:var(--luma-bone);
+--surface-sunken:var(--luma-stone);
+--surface-overlay:rgba(31,35,38,.32);
+
+/* Semantic — text */
+--text-primary:var(--luma-charcoal);
+--text-secondary:var(--luma-ink-80);
+--text-tertiary:var(--luma-ink-64);
+--text-inverse:var(--luma-bone);
+--text-inverse-secondary:var(--luma-bone-70);
+--text-on-accent:var(--luma-white);
+--text-accent:var(--luma-orange);
+
+/* Semantic — lines */
+--border-hairline:var(--luma-ink-14);
+--border-strong:var(--luma-ink-24);
+--border-focus:var(--luma-charcoal);
+--border-inverse:rgba(245,241,234,.18);
+
+/* Semantic — accent & state */
+--accent:var(--luma-orange);
+--accent-hover:var(--luma-orange-hover);
+--accent-press:var(--luma-orange-press);
+--accent-soft:var(--luma-peach);
+--state-error:var(--luma-orange-deep);
+--state-success:var(--luma-charcoal);
+
+/* Logo */
+--logo-ink:var(--luma-charcoal);
+--logo-ink-reversed:var(--luma-white);
+--logo-eclipse-front:var(--luma-orange);
+--logo-eclipse-back:var(--luma-peach);
+}
+
+/* ---- tokens/typography.css ---- */
+:root{
+/* Families — two free (OFL) faces. The wordmark is outlined SVG and uses no font. */
+--font-display:"Geist",ui-sans-serif,system-ui,sans-serif;
+--font-body:"Figtree",ui-sans-serif,system-ui,sans-serif;
+
+--weight-regular:400;
+--weight-medium:500;
+
+/* Scale — size / line-height. H1, H2, Body, Caption, Button come straight from the typography board */
+--type-hero-size:80px;--type-hero-lh:84px;--type-hero-track:-0.03em;
+--type-h1-size:56px;--type-h1-lh:64px;--type-h1-track:-0.025em;
+--type-h2-size:28px;--type-h2-lh:36px;--type-h2-track:-0.015em;
+--type-h3-size:20px;--type-h3-lh:28px;--type-h3-track:-0.005em;
+--type-lead-size:18px;--type-lead-lh:28px;
+--type-body-size:16px;--type-body-lh:24px;
+--type-caption-size:14px;--type-caption-lh:20px;
+--type-button-size:16px;--type-button-lh:20px;--type-button-track:0.06em;
+--type-overline-size:12px;--type-overline-lh:16px;--type-overline-track:0.24em;
+
+/* Mobile headline sizes (<= 720px) */
+--type-hero-size-mobile:48px;--type-hero-lh-mobile:52px;
+--type-h1-size-mobile:40px;--type-h1-lh-mobile:44px;
+--type-h2-size-mobile:24px;--type-h2-lh-mobile:30px;
+
+/* Semantic aliases */
+--text-hero:var(--weight-regular) var(--type-hero-size)/var(--type-hero-lh) var(--font-display);
+--text-h1:var(--weight-regular) var(--type-h1-size)/var(--type-h1-lh) var(--font-display);
+--text-h2:var(--weight-regular) var(--type-h2-size)/var(--type-h2-lh) var(--font-display);
+--text-h3:var(--weight-regular) var(--type-h3-size)/var(--type-h3-lh) var(--font-body);
+--text-lead:var(--weight-regular) var(--type-lead-size)/var(--type-lead-lh) var(--font-body);
+--text-body:var(--weight-regular) var(--type-body-size)/var(--type-body-lh) var(--font-body);
+--text-caption:var(--weight-regular) var(--type-caption-size)/var(--type-caption-lh) var(--font-body);
+--text-button:var(--weight-medium) var(--type-button-size)/var(--type-button-lh) var(--font-body);
+--text-overline:var(--weight-regular) var(--type-overline-size)/var(--type-overline-lh) var(--font-body);
+}
+
+/* ---- tokens/spacing.css ---- */
+:root{
+/* Spacing — 4px base */
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;
+--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;--space-11:160px;
+
+/* Layout */
+--container-max:1280px;
+--container-text:640px;
+--gutter-desktop:48px;
+--gutter-mobile:20px;
+--header-height:72px;
+--section-y:var(--space-10);
+--section-y-mobile:var(--space-8);
+
+/* Radii */
+--radius-xs:4px;
+--radius-sm:8px;
+--radius-md:12px;
+--radius-lg:20px;
+--radius-pill:999px;
+
+/* Borders */
+--border-width:1px;
+
+/* Elevation — used sparingly: drawers, dialogs, menus only */
+--shadow-none:none;
+--shadow-overlay:0 24px 48px -16px rgba(31,35,38,.20),0 2px 6px rgba(31,35,38,.06);
+
+/* Motion — calm, no bounce */
+--ease-out:cubic-bezier(.2,.7,.2,1); /* @kind other */
+--ease-in-out:cubic-bezier(.6,0,.3,1); /* @kind other */
+--dur-fast:160ms; /* @kind other */
+--dur-base:240ms; /* @kind other */
+--dur-slow:480ms; /* @kind other */
+
+/* Focus */
+--focus-ring:0 0 0 2px var(--luma-bone),0 0 0 4px var(--luma-charcoal);
+}
