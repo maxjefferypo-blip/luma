@@ -6,10 +6,10 @@
 
 /** Cleaned product renders (project/assets/product). Served from /public. */
 export const IMG = {
-  front: '/images/product/lc01-front.png',
-  rays: '/images/product/lc01-rays.png',
-  hd: '/images/product/lc01-hd.png',
-  layers: '/images/product/lc01-layers.png',
+  front: '/images/product/lc01-front.webp',
+  rays: '/images/product/lc01-rays.webp',
+  hd: '/images/product/lc01-hd.webp',
+  layers: '/images/product/lc01-layers.webp',
 } as const;
 
 export const PRODUCT_COPY = {

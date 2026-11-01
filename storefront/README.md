@@ -85,6 +85,5 @@ Design tokens are copied from `project/tokens/`. If the design system changes, r
 
 - **Lifestyle photography:** the home gallery shows the art-direction frames (`Slot` in `_index.tsx`). Pass `src` once photos exist.
 - **Price and device list:** these now come from Shopify. The £39 and iPhone 16 models in the designs were placeholders.
-- **Images:** the PNG renders are 300–830 KB each. Uploading them to Shopify (served resized from the CDN) or converting to WebP will speed up the home page.
 - **Home closing card:** the prototype's "Add to bag — £39" became "Choose your model", because adding a default iPhone model without asking would ship the wrong glass. With a single-variant product it adds straight to the bag.
 - **Search and blog:** the skeleton routes still work (`/search`, `/blogs`), restyled, but aren't linked from the navigation.
