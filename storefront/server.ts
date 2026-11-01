@@ -19,7 +19,9 @@ const REQUIRED_ENV = ['SESSION_SECRET', 'PUBLIC_STORE_DOMAIN', 'PUBLIC_STOREFRON
 export default async function handler(request: Request, netlifyContext: Context): Promise<Response> {
   try {
     const env = getEnv();
-    const missing = REQUIRED_ENV.filter((key) => !env[key]);
+    // PUBLIC_STORE_DOMAIN=mock.shop uses Shopify's public demo store, which needs no API token.
+    const isMockShop = env.PUBLIC_STORE_DOMAIN?.includes('mock.shop');
+    const missing = REQUIRED_ENV.filter((key) => !env[key] && !(isMockShop && key === 'PUBLIC_STOREFRONT_API_TOKEN'));
     if (missing.length) {
       console.error(`Missing environment variables: ${missing.join(', ')}`);
       return new Response(
