@@ -13,9 +13,21 @@ function getEnv(): Env {
   return values as unknown as Env;
 }
 
+/** Without these, Hydrogen throws on every request. Listed by name only (never values). */
+const REQUIRED_ENV = ['SESSION_SECRET', 'PUBLIC_STORE_DOMAIN', 'PUBLIC_STOREFRONT_API_TOKEN'] as const;
+
 export default async function handler(request: Request, netlifyContext: Context): Promise<Response> {
   try {
     const env = getEnv();
+    const missing = REQUIRED_ENV.filter((key) => !env[key]);
+    if (missing.length) {
+      console.error(`Missing environment variables: ${missing.join(', ')}`);
+      return new Response(
+        `Luma storefront isn't configured yet.\n\nMissing environment variables: ${missing.join(', ')}\n\n` +
+          'Add them in Netlify › Project configuration › Environment variables, then redeploy (Deploys › Trigger deploy).',
+        {status: 503, headers: {'Content-Type': 'text/plain; charset=utf-8'}},
+      );
+    }
     const executionContext = {
       waitUntil: (promise: Promise<unknown>) => {
         if (typeof netlifyContext?.waitUntil === 'function') netlifyContext.waitUntil(promise);
