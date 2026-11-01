@@ -1,0 +1,22 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg-page);color:var(--text-primary);font:var(--text-body);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,p{margin:0;text-wrap:pretty}
+a{color:var(--text-primary);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:var(--border-strong);transition:text-decoration-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+a:hover{text-decoration-color:currentColor}
+::selection{background:var(--luma-peach);color:var(--luma-charcoal)}
+:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+
+.luma-hero{font:var(--text-hero);letter-spacing:var(--type-hero-track)}
+.luma-h1{font:var(--text-h1);letter-spacing:var(--type-h1-track)}
+.luma-h2{font:var(--text-h2);letter-spacing:var(--type-h2-track)}
+.luma-h3{font:var(--text-h3);letter-spacing:var(--type-h3-track)}
+.luma-lead{font:var(--text-lead);color:var(--text-secondary)}
+.luma-body{font:var(--text-body);color:var(--text-secondary)}
+.luma-caption{font:var(--text-caption);color:var(--text-tertiary)}
+.luma-overline{font:var(--text-overline);letter-spacing:var(--type-overline-track);text-transform:uppercase}
+@media (max-width:720px){
+.luma-hero{font-size:var(--type-hero-size-mobile);line-height:var(--type-hero-lh-mobile)}
+.luma-h1{font-size:var(--type-h1-size-mobile);line-height:var(--type-h1-lh-mobile)}
+.luma-h2{font-size:var(--type-h2-size-mobile);line-height:var(--type-h2-lh-mobile)}
+}

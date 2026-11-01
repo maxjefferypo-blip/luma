@@ -1,0 +1,151 @@
+<!-- @dsCard group="Website" viewport="1280x800" name="Luma website" subtitle="Home · Shop (LC–01) · Science · Bag drawer — click through" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luma — Website UI kit</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+.k-container{margin:0 auto;padding:0 var(--gutter-desktop)}
+.k-section{padding:var(--section-y) 0}
+.k-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:72px;align-items:stretch}
+.k-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:64px;align-items:start}
+.k-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.k-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px}
+.k-pdp{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:72px;align-items:start}
+.k-buy{position:sticky;top:96px}
+.k-trust{display:flex;flex-wrap:wrap;gap:8px 20px;font:var(--text-caption);color:var(--text-secondary)}
+.k-trust span{display:inline-flex;align-items:center;gap:8px}
+.k-trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--luma-orange)}
+.k-compare{display:grid;grid-template-columns:minmax(0,1fr) 140px 160px;font:var(--text-body)}
+.k-compare-h{padding:18px 12px 14px;text-align:center;font:var(--text-overline);letter-spacing:.16em;text-transform:uppercase;color:var(--text-tertiary);display:flex;justify-content:center;align-items:center}
+.k-compare-c{padding:18px 12px;border-top:1px solid var(--border-hairline);display:flex;justify-content:center;align-items:center;text-align:center}
+.k-compare-luma{box-shadow:inset 1px 0 0 var(--border-hairline),inset -1px 0 0 var(--border-hairline)}
+.k-layers{list-style:none;margin:8px 0 0;padding:0;counter-reset:l}
+.k-layers li{counter-increment:l;display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--border-strong);font:var(--text-body);color:var(--text-secondary)}
+.k-layers li::before{content:"0" counter(l);font:12px/24px var(--font-body);letter-spacing:.16em;color:var(--text-tertiary)}
+.k-layers li.on{color:var(--text-primary);font-weight:500}
+.k-layers li.on::before{color:var(--luma-orange-deep)}
+.k-cta{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.k-marquee{overflow:hidden;display:flex}
+.k-marquee-track{display:flex;flex:none;animation:k-marq linear infinite}
+.k-marquee:hover .k-marquee-track{animation-play-state:paused}
+.k-marquee-half{display:flex;flex:none;align-items:center}
+@keyframes k-marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.k-marquee-track{animation:none}}
+.k-announce{background:var(--luma-peach);color:var(--luma-charcoal);height:40px;display:flex;align-items:center;font:var(--text-caption);cursor:pointer;white-space:nowrap}
+.k-announce-item{display:inline-flex;align-items:center;gap:8px}
+.k-chip{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;border:1px solid currentColor;font:500 12px/1 var(--font-body);letter-spacing:.04em;white-space:nowrap}
+.k-chip-solid{background:var(--luma-bone);border-color:var(--border-strong);height:30px;padding:0 14px;font:400 13px/1 var(--font-body);letter-spacing:0}
+.k-hero2{background:var(--luma-stone);border-radius:0 0 28px 28px;overflow:hidden}
+.k-hero2-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;min-height:660px;align-items:center}
+.k-hero2-media{align-self:end;display:flex;justify-content:center}
+.k-hero2-media img{height:620px;display:block;margin:48px 0 -36px}
+.k-row-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.k-row-head-side{display:flex;align-items:flex-end;gap:48px}
+.k-dgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.k-dcard{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 20px 28px;border-radius:20px;cursor:pointer;color:var(--luma-bone);transition:transform var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out)}
+.k-box{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px}
+.k-box-hero{position:relative;aspect-ratio:16/11;background:var(--luma-stone);border-radius:var(--radius-lg);overflow:hidden}
+.k-box-hero img{position:absolute;left:50%;top:7%;height:86%;transform:translateX(-50%)}
+.k-pin{position:absolute;display:flex;align-items:center}
+.k-pin-line{width:56px;border-top:1px dashed var(--luma-ink-64)}
+.k-thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.k-frost-sec{position:relative;overflow:hidden;background:var(--luma-mist);padding:96px 0}
+.k-frost-bg{position:absolute;left:50%;top:50%;width:120%;transform:translate(-50%,-50%);filter:blur(56px) saturate(.6);opacity:.5;pointer-events:none}
+.k-frost{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,.6fr);gap:40px;align-items:center;padding:72px 64px;border-radius:28px;background:rgba(245,241,234,.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.5)}
+.k-frost-media img{width:100%;max-height:440px;object-fit:contain;display:block}
+.k-dot{display:inline-flex;align-items:center;gap:10px;color:var(--text-primary)}
+.k-dot::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--luma-orange)}
+.k-stat{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 28px;border:1px solid var(--border-strong);border-radius:16px;max-width:460px}
+.k-edit{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:stretch}
+.k-edit-copy{display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:8px 0}
+.k-edit-media{background:var(--luma-mist);border-radius:var(--radius-lg);min-height:560px;display:flex;align-items:center;padding:56px 48px}
+.k-ticker{border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline);padding:28px 0;font:400 56px/1.1 var(--font-display);letter-spacing:-.03em;white-space:nowrap}
+.k-carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 calc(50% - min(360px,42vw));scrollbar-width:none}
+.k-carousel::-webkit-scrollbar{display:none}
+.k-rcard{flex:none;width:min(720px,84vw);aspect-ratio:16/10;border-radius:var(--radius-lg);padding:36px 40px;display:flex;flex-direction:column;justify-content:space-between;scroll-snap-align:center;cursor:pointer;transition:opacity var(--dur-slow) var(--ease-out)}
+.k-rcard-value{font:400 144px/1 var(--font-display);letter-spacing:-.04em}
+.k-gallery{display:flex;gap:12px;align-items:flex-start;overflow-x:auto;scrollbar-width:none;padding:0 max(var(--gutter-desktop),calc((100% - var(--container-max))/2 + var(--gutter-desktop)))}
+.k-gallery::-webkit-scrollbar{display:none}
+.k-gcol{display:flex;flex-direction:column;gap:12px;flex:none}
+.k-duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.k-duo-card{min-height:560px;border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-align:center;padding:56px 40px}
+.k-sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;gap:14px;padding:12px var(--gutter-desktop);background:var(--bg-page);border-top:1px solid var(--border-hairline);box-shadow:0 -12px 32px -16px rgba(31,35,38,.18);transition:transform var(--dur-slow) var(--ease-out)}
+@media (max-width:900px){
+.k-container{padding:0 var(--gutter-mobile)}
+.k-section{padding:var(--section-y-mobile) 0}
+.k-hero,.k-split,.k-feature,.k-pdp{grid-template-columns:1fr;gap:40px}
+.k-steps{grid-template-columns:1fr;gap:24px}
+.k-pdp>div:last-child{position:static!important}
+.k-sci-media{grid-template-columns:1fr!important}
+.k-compare{grid-template-columns:minmax(0,1fr) 84px 96px;font:var(--text-caption)}
+.k-sticky{padding:10px var(--gutter-mobile)}
+.k-hero2-grid{grid-template-columns:1fr;min-height:0;padding-top:48px;gap:8px}
+.k-hero2-media img{height:400px;margin-top:16px}
+.k-row-head{margin-bottom:32px}
+.k-row-head-side{flex-direction:column;align-items:flex-start;gap:16px}
+.k-dgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--gutter-mobile));padding:12px var(--gutter-mobile) 0;scrollbar-width:none}
+.k-dcard{flex:none;width:74%;scroll-snap-align:start}
+.k-box,.k-edit,.k-duo{grid-template-columns:1fr;gap:40px}
+.k-pin .k-chip-solid{font-size:11px;height:24px;padding:0 10px}
+.k-pin-line{width:24px}
+.k-frost-sec{padding:48px 0}
+.k-frost{grid-template-columns:1fr;padding:36px 24px;gap:32px}
+.k-frost-media img{max-height:320px}
+.k-edit-media{min-height:0;padding:32px 20px}
+.k-ticker{font-size:34px;padding:20px 0}
+.k-rcard{padding:24px}
+.k-rcard-value{font-size:72px}
+.k-gallery{padding:0 var(--gutter-mobile)}
+.k-duo-card{min-height:440px}
+}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="Shared.jsx"></script>
+<script type="text/babel" src="HomePage.jsx"></script>
+<script type="text/babel" src="ProductPage.jsx"></script>
+<script type="text/babel" src="SciencePage.jsx"></script>
+<script type="text/babel" src="BagDrawer.jsx"></script>
+<script type="text/babel">
+function App() {
+  const { SiteHeader, SiteFooter, Button, Icon } = LDS;
+  const [page, setPage] = React.useState(() => localStorage.getItem('luma-kit-page') || 'home');
+  const [device, setDevice] = React.useState(DEVICES[0]);
+  const [qty, setQty] = React.useState(0);
+  const [bag, setBag] = React.useState(false);
+  const [compact, setCompact] = React.useState(window.innerWidth < 900);
+  React.useEffect(() => { const r = () => setCompact(window.innerWidth < 900); window.addEventListener('resize', r); return () => window.removeEventListener('resize', r); }, []);
+  const go = (p, d) => { if (d) setDevice(d); const id = p === 'technology' ? 'science' : p; setPage(id); localStorage.setItem('luma-kit-page', id); window.scrollTo(0, 0); };
+  const addToBag = (n = 1) => { setQty((q) => Math.min(5, q + (typeof n === 'number' ? n : 1))); setBag(true); };
+  return (
+    <div data-screen-label={page}>
+      <div className="k-announce" onClick={() => go('shop')}>
+        <Marquee duration={50} gap={64}>
+          {['Luma LC–01 — a different kind of screen protector', 'Applicator included in every box', 'Not just protection. Light conversion.', 'Published test results — see how we measure'].map((t) => <span key={t} className="k-announce-item">{t}<Icon name="arrow-right" size={14} /></span>)}
+        </Marquee>
+      </div>
+      <div style={{ position: 'sticky', top: 0, zIndex: 20 }}>
+        <SiteHeader active={page} cartCount={qty} onNavigate={go} onHome={() => go('home')} onCart={() => setBag(true)} compact={compact}
+          action={page !== 'shop' ? <Button size="sm" variant="dark" caps={false} onClick={() => go('shop')}>Shop LC–01</Button> : null} />
+      </div>
+      {page === 'home' && <HomePage go={go} addToBag={() => addToBag(1)} />}
+      {page === 'shop' && <ProductPage key={device} initialDevice={device} addToBag={addToBag} go={go} />}
+      {page === 'science' && <SciencePage go={go} />}
+      <SiteFooter compact={compact} statement="Rethink what’s between you and your screen." signature />
+      <BagDrawer open={bag} onClose={() => setBag(false)} qty={qty} setQty={setQty} />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

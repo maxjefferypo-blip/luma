@@ -1,0 +1,60 @@
+:root{
+/* Core palette — from the Luma brand brief */
+--luma-charcoal:#1F2326;
+--luma-orange:#D65D42;
+--luma-peach:#F5BFA9;
+--luma-bone:#F5F1EA;
+--luma-stone:#E6DED3;
+--luma-mist:#D9E1DE;
+--luma-white:#FFFFFF;
+
+/* Derived neutrals — charcoal mixed into bone. Not new hues; used only for text hierarchy and hairlines */
+--luma-ink-80:#4A4C4D;
+--luma-ink-64:#6C6D6D;
+--luma-ink-24:#C2C0BB;
+--luma-ink-14:#D7D4CF;
+--luma-bone-70:#B5B3AF;
+
+/* Derived orange states — interaction only */
+--luma-orange-hover:#C2533A;
+--luma-orange-press:#AD4A33;
+--luma-orange-deep:#B4442E;
+
+/* Semantic — surfaces */
+--bg-page:var(--luma-bone);
+--bg-subtle:var(--luma-stone);
+--bg-cool:var(--luma-mist);
+--bg-inverse:var(--luma-charcoal);
+--surface-card:var(--luma-bone);
+--surface-sunken:var(--luma-stone);
+--surface-overlay:rgba(31,35,38,.32);
+
+/* Semantic — text */
+--text-primary:var(--luma-charcoal);
+--text-secondary:var(--luma-ink-80);
+--text-tertiary:var(--luma-ink-64);
+--text-inverse:var(--luma-bone);
+--text-inverse-secondary:var(--luma-bone-70);
+--text-on-accent:var(--luma-white);
+--text-accent:var(--luma-orange);
+
+/* Semantic — lines */
+--border-hairline:var(--luma-ink-14);
+--border-strong:var(--luma-ink-24);
+--border-focus:var(--luma-charcoal);
+--border-inverse:rgba(245,241,234,.18);
+
+/* Semantic — accent & state */
+--accent:var(--luma-orange);
+--accent-hover:var(--luma-orange-hover);
+--accent-press:var(--luma-orange-press);
+--accent-soft:var(--luma-peach);
+--state-error:var(--luma-orange-deep);
+--state-success:var(--luma-charcoal);
+
+/* Logo */
+--logo-ink:var(--luma-charcoal);
+--logo-ink-reversed:var(--luma-white);
+--logo-eclipse-front:var(--luma-orange);
+--logo-eclipse-back:var(--luma-peach);
+}

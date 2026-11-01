@@ -1,0 +1,38 @@
+:root{
+/* Spacing — 4px base */
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;
+--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;--space-11:160px;
+
+/* Layout */
+--container-max:1280px;
+--container-text:640px;
+--gutter-desktop:48px;
+--gutter-mobile:20px;
+--header-height:72px;
+--section-y:var(--space-10);
+--section-y-mobile:var(--space-8);
+
+/* Radii */
+--radius-xs:4px;
+--radius-sm:8px;
+--radius-md:12px;
+--radius-lg:20px;
+--radius-pill:999px;
+
+/* Borders */
+--border-width:1px;
+
+/* Elevation — used sparingly: drawers, dialogs, menus only */
+--shadow-none:none;
+--shadow-overlay:0 24px 48px -16px rgba(31,35,38,.20),0 2px 6px rgba(31,35,38,.06);
+
+/* Motion — calm, no bounce */
+--ease-out:cubic-bezier(.2,.7,.2,1); /* @kind other */
+--ease-in-out:cubic-bezier(.6,0,.3,1); /* @kind other */
+--dur-fast:160ms; /* @kind other */
+--dur-base:240ms; /* @kind other */
+--dur-slow:480ms; /* @kind other */
+
+/* Focus */
+--focus-ring:0 0 0 2px var(--luma-bone),0 0 0 4px var(--luma-charcoal);
+}
