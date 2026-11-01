@@ -1,0 +1,6 @@
+# GitHub language stats: count the storefront's own code, not exported/generated files.
+# The design system is exported from Claude Design (HTML specimen cards, generated bundle).
+project/** linguist-vendored
+docs/** linguist-documentation
+storefront/*.generated.d.ts linguist-generated
+storefront/package-lock.json linguist-generated
